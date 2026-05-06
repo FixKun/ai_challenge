@@ -21,9 +21,9 @@ An interactive employee leaderboard page — static HTML/CSS/JS, no dependencies
 ### 2. Push the files
 
 ```bash
-cd /path/to/this/folder
+cd /path/to/parent/folder   # the folder containing task-1/
 git init
-git add .
+git add task-1/
 git commit -m "Initial leaderboard"
 git branch -M main
 git remote add origin https://github.com/<your-username>/<your-repo>.git
@@ -35,14 +35,18 @@ git push -u origin main
 1. Open your repository on GitHub
 2. Go to **Settings → Pages**
 3. Under **Source**, select **Deploy from a branch**
-4. Set **Branch** to `main` and folder to `/ (root)`
+4. Set **Branch** to `main` and folder to `/ (root)` — GitHub Pages does not support subdirectory sources directly, so either move files to root or use a custom workflow (see note below)
 5. Click **Save**
 
 Your site will be live at:
 
 ```
-https://<your-username>.github.io/<your-repo>/
+https://<your-username>.github.io/<your-repo>/task-1/
 ```
+
+> **Note:** GitHub Pages (branch deploy) serves from the repo root or `/docs`, not from a subfolder.
+> The simplest fix is to push the contents of `task-1/` into the repo root instead of inside a subfolder.
+> Alternatively, use a GitHub Actions workflow to copy `task-1/` to a `gh-pages` branch.
 
 It typically takes 1–2 minutes for the first deployment to become available.
 
